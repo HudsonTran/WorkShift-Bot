@@ -10,6 +10,8 @@ function doPost(e) {
     addList(name, text);
   } else if(text.toLowerCase().substring(0,8) == "!myList") {
     getMyList(name);
+  } else if(text.toLowerCase().substring(0,11) == "!removeAll") {
+    clearList(name);
   }
   
 }
@@ -35,6 +37,15 @@ function getMyList(name) {
     }
     retList += shiftList[shiftList.length()];
     sendText("Here are the shifts " + name + " needs covering: " + retList);
+  }
+}
+
+function clearList(name) {
+  if(dataSheet.get(name) == undefined || shiftList[0] == undedfined) {
+    sendText(name + ", you don't have any shifts to remove.");
+  } else {
+    dataSheet.set(name, []);
+    sendText("Removed any shifts needed covering.");
   }
 }
 
