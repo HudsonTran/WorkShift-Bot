@@ -16,6 +16,7 @@ function doPost(e) {
   
 }
 
+// Adds to the user's list of shifts
 function addList(name, text) {
   if(dataSheet.get(name) == undefined) {
     dataSheet.set(name, [text.substring(7)]);
@@ -26,6 +27,7 @@ function addList(name, text) {
   sendText(text.substring(7) + " has been added to your list of shifts that need a cover.");
 }
 
+// Returns the user's list of shifts
 function getMyList(name) {
   var shiftList = dataSheet.get(name);
   if(shiftList == undefined || shiftList[0] == undefined) {
@@ -40,6 +42,7 @@ function getMyList(name) {
   }
 }
 
+// Completely clears the user's list
 function clearList(name) {
   if(dataSheet.get(name) == undefined || shiftList[0] == undedfined) {
     sendText(name + ", you don't have any shifts to remove.");
