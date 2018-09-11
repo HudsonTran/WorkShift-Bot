@@ -4,5 +4,7 @@ A GroupMe Bot to help coordinate employees switching and covering shifts. Hosted
 Change Log:
 
 09/08/18: Initial code posted
+
 09/09/18: Added clearList function
+
 09/10/18: Updated comments
