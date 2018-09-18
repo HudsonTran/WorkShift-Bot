@@ -52,6 +52,24 @@ function clearList(name) {
   }
 }
 
+function removeFromMyList(name, text) {
+  var shiftDate = text.substring(8);
+  var shiftList = dataSheet.get(name);
+  var removed = false;
+  if(shiftList != unedfined) {
+    for(var i = 0; i < shiftList.length(); i++) {
+      if(shiftList[i] == shiftDate) {
+        shiftList[i] = null;
+        sendText("Removed " + shiftDate + " from your list of shifts. Don't forget" +
+                 " to notify a director!");
+        removed = true;
+      }
+    }
+  }
+  if(!removed)
+    snedText("There was no shift " + shiftDate + " to remove.");
+}
+
 function sendText(text){
   UrlFetchApp.fetch("https://api.groupme.com/v3/bots/post", {"method":"post", "payload":'{"bot_id":"' + botId + '","text":"' + text + '"}'})
 }
