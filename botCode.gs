@@ -67,7 +67,7 @@ function removeFromMyList(name, text) {
     }
   }
   if(!removed)
-    snedText("There was no shift " + shiftDate + " to remove.");
+    sendText("There was no shift " + shiftDate + " to remove.");
 }
 
 function sendText(text){
