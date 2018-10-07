@@ -6,12 +6,15 @@ function doPost(e) {
   var text = post.text;
   var name = post.name;
   
+  //parsing through user message to find function
   if(text.toLowerCase().substring(0,7) == "!cover") {
     addList(name, text);
   } else if(text.toLowerCase().substring(0,8) == "!myList") {
     getMyList(name);
   } else if(text.toLowerCase().substring(0,11) == "!removeAll") {
     clearList(name);
+  } else if(text.toLowerCase().substring(0,10) == "!removeMy") {
+    removeFromMyList(name, text);
   }
   
 }
@@ -52,6 +55,7 @@ function clearList(name) {
   }
 }
 
+// Removing from calling user's list
 function removeFromMyList(name, text) {
   var shiftDate = text.substring(8);
   var shiftList = dataSheet.get(name);
